@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pour toi, mon amour</title>
+    <meta
+      name="description"
+      content="Une page romantique, douce et délicate, écrite avec tout mon amour."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-1: #0b0b0f;
+        --bg-2: #141218;
+        --bg-3: #201822;
+        --bg-4: #ffecf3;
+        --card: rgba(255, 255, 255, 0.06);
+        --card-strong: rgba(255, 255, 255, 0.1);
+        --rose: #ff5ca8;
+        --rose-deep: #ff3d92;
+        --blush: #ffd7eb;
+        --gold: #ffc766;
+        --text: #fef7fb;
+        --muted: #efd4e1;
+        --shadow: rgba(255, 95, 168, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 12% 10%, rgba(255, 118, 182, 0.32), transparent 20%),
+          radial-gradient(circle at 88% 18%, rgba(255, 204, 111, 0.18), transparent 24%),
+          radial-gradient(circle at 50% 85%, rgba(255, 138, 196, 0.12), transparent 30%),
+          linear-gradient(135deg, #08080d 0%, #141119 30%, #201720 72%, #120d16 100%);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.18));
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .page-shell {
+        position: relative;
+        min-height: 100vh;
+      }
+
+      .floating-hearts,
+      .floating-hearts::before,
+      .floating-hearts::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .floating-hearts {
+        background-image:
+          radial-gradient(circle at 10% 20%, rgba(255, 95, 162, 0.5) 0 10px, transparent 11px),
+          radial-gradient(circle at 80% 15%, rgba(255, 214, 227, 0.38) 0 14px, transparent 15px),
+          radial-gradient(circle at 40% 80%, rgba(255, 190, 210, 0.32) 0 12px, transparent 13px),
+          radial-gradient(circle at 88% 60%, rgba(255, 214, 227, 0.34) 0 12px, transparent 13px),
+          radial-gradient(circle at 62% 43%, rgba(255, 198, 109, 0.22) 0 16px, transparent 17px);
+        animation: drift 16s ease-in-out infinite alternate;
+        opacity: 1;
+      }
+
+      @keyframes drift {
+        0% {
+          transform: translateY(0px) scale(1);
+        }
+        100% {
+          transform: translateY(-20px) scale(1.05);
+        }
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(18px);
+        background: rgba(9, 9, 13, 0.6);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 78px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.76rem;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #ff67ae, #ffb86e);
+        box-shadow: 0 12px 24px rgba(255, 95, 162, 0.26);
+      }
+
+      .brand-mark::before {
+        content: "❤";
+        color: white;
+        font-size: 0.9rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .nav-links a {
+        position: relative;
+        opacity: 0.8;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: #ffdfe9;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -7px;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--rose), transparent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      .cta-small {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.25rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+        color: white;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        box-shadow: 0 18px 32px rgba(217, 63, 111, 0.24);
+      }
+
+      main {
+        padding-bottom: 100px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: 28px;
+        min-height: 82vh;
+        padding: 52px 0 36px;
+      }
+
+      .hero-copy {
+        position: relative;
+      }
+
+      .hero-copy::after {
+        content: "";
+        position: absolute;
+        inset: -40px auto auto -30px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, rgba(255, 122, 167, 0.18), transparent 68%);
+        filter: blur(20px);
+        z-index: -1;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.65rem 1.1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 92, 168, 0.28);
+        background: rgba(255, 255, 255, 0.04);
+        color: #ffd6ea;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.68rem;
+      }
+
+      .eyebrow::before {
+        content: "❤";
+        font-size: 0.8rem;
+      }
+
+      h1 {
+        margin: 18px 0 20px;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: clamp(3.2rem, 6.7vw, 6.8rem);
+        line-height: 0.9;
+        letter-spacing: -0.06em;
+        text-transform: uppercase;
+      }
+
+      .hero-copy p {
+        margin: 0 0 26px;
+        font-size: 1.08rem;
+        line-height: 1.8;
+        color: var(--muted);
+        max-width: 560px;
+        font-weight: 500;
+      }
+
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 999px;
+        padding: 1rem 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        cursor: pointer;
+        font-size: 0.76rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: inherit;
+        background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0));
+        opacity: 0.8;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px) scale(1.02);
+        filter: brightness(1.08);
+        box-shadow: 0 20px 38px rgba(255, 118, 182, 0.22);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+        color: white;
+        box-shadow: 0 18px 32px rgba(217, 63, 111, 0.22);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.48);
+        border: 1px solid rgba(231, 111, 145, 0.18);
+        color: var(--text);
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 620px;
+        display: grid;
+        place-items: center;
+      }
+
+      .visual-card {
+        position: relative;
+        width: min(100%, 440px);
+        aspect-ratio: 0.82;
+        border-radius: 38px;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.16)),
+          linear-gradient(135deg, rgba(255, 94, 166, 0.95), rgba(255, 175, 98, 0.56) 55%, rgba(57, 30, 42, 0.9));
+        box-shadow: 0 32px 48px rgba(133, 92, 111, 0.32), 0 0 0 1px rgba(255,255,255,0.18), 0 0 40px rgba(255, 115, 176, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transform: perspective(1200px) rotateY(-8deg) rotateX(4deg);
+      }
+
+      .visual-card::before {
+        content: "";
+        position: absolute;
+        inset: 20px;
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.26);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      .portrait {
+        position: absolute;
+        inset: 55px 52px 80px;
+        border-radius: 26px 26px 40% 40%;
+        background:
+          radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 22%),
+          linear-gradient(180deg, rgba(255, 245, 248, 0.7), rgba(237, 190, 202, 0.48)),
+          linear-gradient(135deg, rgba(255, 200, 219, 0.82) 0%, rgba(251, 171, 200, 0.78) 38%, rgba(176, 123, 149, 0.7) 100%);
+        box-shadow: inset 0 -24px 32px rgba(194, 120, 151, 0.12), 0 18px 32px rgba(46, 27, 35, 0.18);
+      }
+
+      .portrait::before,
+      .portrait::after {
+        content: "";
+        position: absolute;
+        bottom: 62px;
+        width: 120px;
+        height: 120px;
+        border-radius: 48% 52% 50% 50%;
+        background: rgba(255, 255, 255, 0.45);
+      }
+
+      .portrait::before {
+        left: 40px;
+        transform: rotate(-16deg);
+      }
+
+      .portrait::after {
+        right: 40px;
+        transform: rotate(16deg);
+      }
+
+      .lotus {
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 160px;
+        background: linear-gradient(180deg, rgba(255,255,255,0), rgba(236, 193, 204, 0.46));
+      }
+
+      .lotus::before,
+      .lotus::after {
+        content: "";
+        position: absolute;
+        bottom: 24px;
+        width: 190px;
+        height: 120px;
+        border-radius: 50% 50% 0 0;
+        background: rgba(255, 255, 255, 0.35);
+      }
+
+      .lotus::before {
+        left: -14px;
+        transform: rotate(-10deg);
+      }
+
+      .lotus::after {
+        right: -14px;
+        transform: rotate(10deg);
+      }
+
+      .floating-badge {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.9rem 1.1rem;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 28px rgba(140, 97, 120, 0.16);
+        color: var(--text);
+        font-weight: 600;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .badge-top {
+        top: 44px;
+        right: -32px;
+      }
+
+      .badge-bottom {
+        bottom: 26px;
+        left: -30px;
+      }
+
+      .gallery-section {
+        padding-top: 10px;
+        padding-bottom: 20px;
+      }
+
+      .gallery-wrap {
+        position: relative;
+        padding: 22px 14px 10px;
+        border-radius: 34px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 34px 52px rgba(11, 8, 14, 0.32);
+      }
+
+      .gallery-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 0 8px 18px;
+      }
+
+      .gallery-header .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #ffd8eb;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .gallery-header .tag::before {
+        content: "✦";
+        color: var(--gold);
+      }
+
+      .gallery-header strong {
+        font-size: 0.82rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.76);
+      }
+
+      .photo-wall {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        grid-auto-rows: 110px;
+        gap: 14px;
+      }
+
+      .photo {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 22px 32px rgba(12, 10, 18, 0.28);
+        transform: rotate(var(--tilt, 0deg));
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+
+      .photo:hover {
+        transform: rotate(var(--tilt, 0deg)) translateY(-5px) scale(1.01);
+        box-shadow: 0 28px 40px rgba(14, 10, 18, 0.3);
+      }
+
+      .photo img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        filter: saturate(1.08) contrast(1.06) brightness(0.96);
+        transform: scale(1.04);
+      }
+
+      .photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(12, 10, 18, 0.08), rgba(12, 10, 18, 0.38));
+      }
+
+      .photo-1 { grid-column: 1 / span 5; grid-row: 1 / span 3; --tilt: -1.5deg; }
+      .photo-2 { grid-column: 6 / span 3; grid-row: 1 / span 2; --tilt: 1.2deg; }
+      .photo-3 { grid-column: 9 / span 4; grid-row: 1 / span 3; --tilt: -1deg; }
+      .photo-4 { grid-column: 1 / span 3; grid-row: 4 / span 3; --tilt: 1.1deg; }
+      .photo-5 { grid-column: 4 / span 4; grid-row: 4 / span 2; --tilt: -1.8deg; }
+      .photo-6 { grid-column: 8 / span 5; grid-row: 4 / span 3; --tilt: 1.4deg; }
+      .photo-7 { grid-column: 1 / span 4; grid-row: 7 / span 3; --tilt: -1.1deg; }
+      .photo-8 { grid-column: 5 / span 3; grid-row: 6 / span 3; --tilt: 1.5deg; }
+      .photo-9 { grid-column: 8 / span 2; grid-row: 7 / span 3; --tilt: -1.4deg; }
+      .photo-10 { grid-column: 10 / span 3; grid-row: 7 / span 3; --tilt: 1.1deg; }
+
+      .gallery-badge {
+        position: absolute;
+        left: 16px;
+        bottom: 14px;
+        z-index: 1;
+        padding: 0.55rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(10, 9, 15, 0.42);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(10px);
+        color: var(--text);
+        font-size: 0.66rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .game-section {
+        padding-top: 12px;
+      }
+
+      .game-box {
+        position: relative;
+        padding: 28px 24px 20px;
+        border-radius: 34px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 190, 210, 0.08));
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        box-shadow: 0 28px 44px rgba(16, 13, 20, 0.24);
+      }
+
+      .game-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .game-top h3 {
+        margin: 0;
+        font-size: clamp(1.7rem, 3vw, 2.3rem);
+        font-family: "Space Grotesk", sans-serif;
+        letter-spacing: -0.04em;
+      }
+
+      .game-area {
+        position: relative;
+        height: 260px;
+        border-radius: 30px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.08);
+        background:
+          radial-gradient(circle at 15% 20%, rgba(255, 115, 176, 0.2), transparent 20%),
+          radial-gradient(circle at 80% 30%, rgba(255, 210, 120, 0.18), transparent 18%),
+          linear-gradient(135deg, rgba(8, 7, 12, 0.9), rgba(30, 18, 24, 0.68));
+      }
+
+      .game-question {
+        position: absolute;
+        inset: 24px 24px auto 24px;
+        text-align: center;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.5rem, 2.7vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.05em;
+      }
+
+      .game-btn {
+        position: absolute;
+        z-index: 2;
+        border: none;
+        border-radius: 999px;
+        padding: 0.95rem 1.7rem;
+        font-weight: 800;
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, left 0.25s ease, top 0.25s ease;
+      }
+
+      .game-btn-yes {
+        left: 26%;
+        top: 66%;
+        background: linear-gradient(135deg, #ff6cbb, #ffb86e);
+        color: white;
+        box-shadow: 0 16px 28px rgba(255, 122, 170, 0.28);
+      }
+
+      .game-btn-no {
+        left: 58%;
+        top: 66%;
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        border: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .game-btn:hover {
+        transform: scale(1.05);
+      }
+
+      .game-btn-no.static {
+        left: 58% !important;
+        top: 66% !important;
+      }
+
+      .game-message {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 0.96rem;
+        min-height: 24px;
+      }
+
+      .game-message strong {
+        color: white;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 34px;
+        text-align: center;
+      }
+
+      .section-heading .tag {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: #ffd9ec;
+        font-size: 0.7rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 26px;
+      }
+
+      .story-card,
+      .moment-card,
+      .quote-box,
+      .mini-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 28px;
+        box-shadow: 0 18px 30px var(--shadow);
+      }
+
+      .story-card {
+        padding: 28px 24px 22px;
+      }
+
+      .icon-circle {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(231, 111, 145, 0.16), rgba(248, 217, 160, 0.44));
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      .story-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.45rem;
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .story-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .moment-card {
+        overflow: hidden;
+      }
+
+      .moment-visual {
+        height: 210px;
+        background: linear-gradient(135deg, rgba(247, 213, 223, 0.8), rgba(255, 255, 255, 0.22));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .moment-visual::before,
+      .moment-visual::after {
+        content: "";
+        position: absolute;
+        inset: auto 18px 18px 18px;
+        height: 90px;
+        border-radius: 50% 50% 18% 18%;
+        background: rgba(255, 255, 255, 0.26);
+      }
+
+      .moment-visual::before {
+        transform: rotate(-10deg);
+        left: 34px;
+        right: 50%;
+      }
+
+      .moment-visual::after {
+        transform: rotate(10deg);
+        left: 50%;
+        right: 34px;
+      }
+
+      .moment-card:nth-child(2) .moment-visual {
+        background: linear-gradient(135deg, rgba(255, 232, 191, 0.8), rgba(255, 255, 255, 0.22));
+      }
+
+      .moment-card:nth-child(3) .moment-visual {
+        background: linear-gradient(135deg, rgba(245, 205, 220, 0.86), rgba(255, 255, 255, 0.24));
+      }
+
+      .moment-body {
+        padding: 22px 22px 26px;
+      }
+
+      .moment-date {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: var(--rose-deep);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .moment-body h3 {
+        margin: 0 0 10px;
+        font-size: 1.6rem;
+      }
+
+      .moment-body p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .quote-wrap {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .quote-box {
+        padding: 36px 28px;
+      }
+
+      .quote-mark {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 7rem;
+        line-height: 0.7;
+        color: rgba(231, 111, 145, 0.45);
+      }
+
+      blockquote {
+        margin: 0 0 18px;
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+      }
+
+      .quote-box p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .mini-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .mini-card {
+        padding: 20px 22px;
+      }
+
+      .mini-card strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+      }
+
+      .mini-card span {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .final-call {
+        padding-top: 52px;
+      }
+
+      .final-box {
+        position: relative;
+        padding: 54px 28px;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255, 207, 228, 0.1));
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 36px;
+        box-shadow: 0 24px 38px rgba(155, 97, 123, 0.18);
+      }
+
+      .final-box::before,
+      .final-box::after {
+        content: "❤";
+        position: absolute;
+        top: 26px;
+        font-size: 1.5rem;
+        color: rgba(231, 111, 145, 0.5);
+      }
+
+      .final-box::before {
+        left: 30px;
+      }
+
+      .final-box::after {
+        right: 30px;
+      }
+
+      .final-box h2 {
+        margin: 0 0 12px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2.3rem, 5vw, 4.2rem);
+        text-transform: uppercase;
+        letter-spacing: -0.05em;
+      }
+
+      .final-box p {
+        max-width: 620px;
+        margin: 0 auto 28px;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 1.06rem;
+      }
+
+      .audio-toggle {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 20;
+        width: 54px;
+        height: 54px;
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(17, 12, 18, 0.8), rgba(34, 23, 28, 0.7));
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: 0 18px 36px rgba(11, 8, 14, 0.26), 0 0 24px rgba(255, 122, 170, 0.08);
+        cursor: pointer;
+        backdrop-filter: blur(12px);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .audio-toggle:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 20px 40px rgba(11, 8, 14, 0.28), 0 0 26px rgba(255, 122, 170, 0.12);
+      }
+
+      footer {
+        padding: 18px 0 44px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+        will-change: transform, opacity;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .quote-wrap,
+        .story-grid,
+        .timeline {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 42px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero-visual {
+          min-height: 420px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .nav {
+          gap: 14px;
+        }
+
+        .cta-small {
+          padding: 0.72rem 1rem;
+        }
+
+        h1 {
+          font-size: 3.2rem;
+        }
+
+        .button-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .badge-top {
+          right: 18px;
+        }
+
+        .badge-bottom {
+          left: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="floating-hearts" aria-hidden="true"></div>
+
+      <header>
+        <div class="container nav">
+          <a href="#top" class="brand" aria-label="Accueil">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>Gilanah</span>
+          </a>
+
+          <nav class="nav-links" aria-label="Navigation principale">
+            <a href="#story">Notre histoire</a>
+            <a href="#moments">Moments</a>
+            <a href="#love">À toi</a>
+          </nav>
+
+          <a class="cta-small" href="#final">Je t’aime</a>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="container hero">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">Pour Gilanah</div>
+            <h1>Tu es<br />ma belle<br />compagnie.</h1>
+            <p>
+              Gilanah, tu as cette vibe ultra douce, tellement warm et comforting. Tu mets de la lumière,
+              de la chaleur et du good energy dans les jours sans même essayer. T’es cette personne qui fait
+              qu’on se sent bien, qu’on se sent seen, et qu’on a envie de rester encore plus près de toi.
+            </p>
+            <div class="button-row">
+              <a class="btn btn-primary" href="#story">Our vibe</a>
+              <a class="btn btn-secondary" href="#final">For you</a>
+              <a class="btn btn-secondary" href="gallery.html">Photos</a>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal" aria-label="Illustration romantique">
+            <div class="visual-card">
+              <div class="portrait" aria-hidden="true"></div>
+              <div class="lotus" aria-hidden="true"></div>
+            </div>
+            <div class="floating-badge badge-top">💗 Une belle amitié</div>
+            <div class="floating-badge badge-bottom">✨ Toujours dans ma tête</div>
+          </div>
+        </section>
+
+        <section class="section gallery-section">
+          <div class="container">
+            <div class="gallery-wrap reveal">
+              <div class="gallery-header">
+                <span class="tag">moodboard</span>
+                <strong>for gilanah</strong>
+              </div>
+
+              <div class="photo-wall">
+                <div class="photo photo-1">
+                  <img src="Screenshot%20(189).png" alt="Portrait de Gilanah" />
+                  <span class="gallery-badge">mood</span>
+                </div>
+                <div class="photo photo-2">
+                  <img src="Screenshot%20(188).png" alt="Portrait de Gilanah en noir et blanc" />
+                  <span class="gallery-badge">glow</span>
+                </div>
+                <div class="photo photo-3">
+                  <img src="Screenshot%202026-08-14%20191601.png" alt="Portrait de Gilanah souriante" />
+                  <span class="gallery-badge">soft</span>
+                </div>
+                <div class="photo photo-4">
+                  <img src="Screenshot%20(186).png" alt="Photo de Gilanah" />
+                  <span class="gallery-badge">vibes</span>
+                </div>
+                <div class="photo photo-5">
+                  <img src="Screenshot%20(185).png" alt="Photo de Gilanah" />
+                  <span class="gallery-badge">nice</span>
+                </div>
+                <div class="photo photo-6">
+                  <img src="Screenshot%20(183).png" alt="Photo de Gilanah" />
+                  <span class="gallery-badge">peace</span>
+                </div>
+                <div class="photo photo-7">
+                  <img src="Screenshot%20(182).png" alt="Photo de Gilanah" />
+                  <span class="gallery-badge">light</span>
+                </div>
+                <div class="photo photo-8">
+                  <img src="Screenshot%20(181).png" alt="Photo de Gilanah" />
+                  <span class="gallery-badge">warm</span>
+                </div>
+                <div class="photo photo-9">
+                  <img src="Screenshot%20(180).png" alt="Photo de Gilanah" />
+                  <span class="gallery-badge">clean</span>
+                </div>
+                <div class="photo photo-10">
+                  <img src="Screenshot%20(177).png" alt="Photo de Gilanah" />
+                  <span class="gallery-badge">love</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section game-section" id="game">
+          <div class="container">
+            <div class="game-box reveal">
+              <div class="game-top">
+                <h3>Mini-game : would you leave me?</h3>
+              </div>
+
+              <div class="game-area" id="gameArea" aria-label="Jeu drole">
+                <div class="game-question">Would you leave me for 1,000,000,000,000,000,000 dollars?</div>
+                <button class="game-btn game-btn-yes" id="yesBtn" type="button">Yes 💖</button>
+                <button class="game-btn game-btn-no" id="noBtn" type="button">No, but I still love you 😌</button>
+              </div>
+
+              <div class="game-message" id="gameMessage"><strong>La vérité :</strong> le bouton oui est plus rapide que la richesse.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="story">
+          <div class="container">
+            <div class="section-heading reveal">
+              <span class="tag">Our vibe</span>
+              <h2>Ce qui te rend spéciale</h2>
+            </div>
+
+            <div class="story-grid">
+              <article class="story-card reveal">
+                <div class="icon-circle" aria-hidden="true">🌷</div>
+                <h3>Ta douceur</h3>
+                <p>
+                  Tu as cette façon ultra simple et sincere de mettre les gens à l’aise. Tu mets de la good energy
+                  dans chaque échange, et franchement ça fait du bien.
+                </p>
+              </article>
+
+              <article class="story-card reveal">
+                <div class="icon-circle" aria-hidden="true">🌙</div>
+                <h3>Ta présence</h3>
+                <p>
+                  Quand tu es là, le monde paraît plus calm. Tu apportes cette peace douce, cette aura clean,
+                  et cette sensation que tout va mieux juste en te voyant.
+                </p>
+              </article>
+
+              <article class="story-card reveal">
+                <div class="icon-circle" aria-hidden="true">💫</div>
+                <h3>Ton energy</h3>
+                <p>
+                  Il y a dans toi quelque chose de fresh, de lumineux et de really comforting. Tu es l’genre de personne
+                  qui rend la vie plus douce sans même essayer, c’est juste natural.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="moments">
+          <div class="container">
+            <div class="section-heading reveal">
+              <span class="tag">Our moments</span>
+              <h2>Des moments qu’on garde en tête</h2>
+            </div>
+
+            <div class="timeline">
+              <article class="moment-card reveal">
+                <div class="moment-visual" aria-hidden="true"></div>
+                <div class="moment-body">
+                  <span class="moment-date">First contact</span>
+                  <h3>Cette fluidité</h3>
+                  <p>
+                    J’ai aimé cette connexion naturelle, sans effort, comme si on parlait depuis longtemps.
+                    C’était simple, easy, smooth, et ça a vraiment fait click.
+                  </p>
+                </div>
+              </article>
+
+              <article class="moment-card reveal">
+                <div class="moment-visual" aria-hidden="true"></div>
+                <div class="moment-body">
+                  <span class="moment-date">When you’re here</span>
+                  <h3>Cette paix</h3>
+                  <p>
+                    Tu as cette capacité de calmer les vibes, de faire baisser le stress, et de rendre un instant
+                    plus doux, plus light, plus agréable.
+                  </p>
+                </div>
+              </article>
+
+              <article class="moment-card reveal">
+                <div class="moment-visual" aria-hidden="true"></div>
+                <div class="moment-body">
+                  <span class="moment-date">Future</span>
+                  <h3>La belle amitié</h3>
+                  <p>
+                    Tu es l’genre de personne avec qui on a envie de continuer, de stay in touch,
+                    de rire, d’échanger, et de garder cette belle energy douce.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="love">
+          <div class="container quote-wrap">
+            <div class="quote-box reveal">
+              <div class="quote-mark">“</div>
+              <blockquote>
+                Gilanah, tu as cette aura douce qui rend tout plus cool, plus simple et plus beautiful.
+              </blockquote>
+              <p>
+                C’est ce qui te rend spéciale. Tu apportes de la chaleur, de la good energy et cette vibe super agréable
+                qui fait qu’on se sent bien dès qu’on est avec toi, no cap.
+              </p>
+            </div>
+
+            <div class="mini-grid reveal">
+              <div class="mini-card">
+                <strong>Ce que j’aime</strong>
+                <span>Ta façon d’être douce, natural, et tellement reassuring. C’est rare et c’est really beautiful.</span>
+              </div>
+              <div class="mini-card">
+                <strong>Ce que je veux</strong>
+                <span>Que cette belle amitié continue à grandir, with simplicity, warmth et beaucoup de sincerity.</span>
+              </div>
+              <div class="mini-card">
+                <strong>Ce que je ressens</strong>
+                <span>Une vraie affection, de l’admiration, et un respect profond pour la person que tu es, vraiment.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section final-call" id="final">
+          <div class="container">
+            <div class="final-box reveal">
+              <h2>Tu comptes vraiment</h2>
+              <p>
+                Gilanah, je suis content de t’avoir dans ma life. Tu apportes de la softness, de la vraie bienveillance,
+                et cette vibe super cool qui rend les choses plus belles. Je te respecte beaucoup, et j’espère qu’on gardera
+                cette belle amitié full of warmth, sincerity et good energy.
+              </p>
+              <a class="btn btn-primary" href="#top">Back</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="container">Fait avec tout mon cœur, pour Gilanah.</div>
+      </footer>
+    </div>
+
+    <button class="audio-toggle" id="audioToggle" type="button" aria-label="Activer le son doux">🔊</button>
+
+    <audio id="softAudio" loop preload="auto" muted volume="0.18">
+      <source src="Elvis Presley - Can't Help Falling in Love (Lyrics) [MqazV4hbu8E].mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      const revealItems = document.querySelectorAll('.reveal');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
+
+      const audioToggle = document.getElementById('audioToggle');
+      const softAudio = document.getElementById('softAudio');
+      let isAudioOn = true;
+      softAudio.volume = 0.18;
+      softAudio.muted = false;
+
+      async function setAudioState(nextState) {
+        isAudioOn = nextState;
+        softAudio.muted = !isAudioOn;
+        audioToggle.textContent = isAudioOn ? '🔇' : '🔊';
+        audioToggle.setAttribute('aria-label', isAudioOn ? 'Couper le son doux' : 'Activer le son doux');
+
+        if (isAudioOn) {
+          try {
+            softAudio.volume = 0;
+            await softAudio.play();
+            const start = performance.now();
+            const fadeDuration = 1200;
+
+            function fadeIn() {
+              const elapsed = performance.now() - start;
+              const progress = Math.min(elapsed / fadeDuration, 1);
+              softAudio.volume = 0.18 * progress;
+              if (progress < 1) {
+                requestAnimationFrame(fadeIn);
+              }
+            }
+
+            requestAnimationFrame(fadeIn);
+          } catch (error) {
+            console.log('Audio blocked until the user interacts with the page.');
+          }
+        } else {
+          softAudio.pause();
+          softAudio.volume = 0.18;
+        }
+      }
+
+      document.addEventListener('pointerdown', () => {
+        if (!isAudioOn) return;
+        setAudioState(true);
+      }, { once: true });
+
+      audioToggle.addEventListener('click', async () => {
+        await setAudioState(!isAudioOn);
+      });
+
+      setAudioState(true);
+
+      const gameArea = document.getElementById('gameArea');
+      const yesBtn = document.getElementById('yesBtn');
+      const noBtn = document.getElementById('noBtn');
+      const gameMessage = document.getElementById('gameMessage');
+
+      function resetButtons() {
+        yesBtn.style.left = '26%';
+        yesBtn.style.top = '66%';
+        noBtn.style.left = '58%';
+        noBtn.style.top = '66%';
+        noBtn.classList.add('static');
+      }
+
+      resetButtons();
+
+      yesBtn.addEventListener('mouseenter', () => {
+        const areaRect = gameArea.getBoundingClientRect();
+        const btnWidth = 120;
+        const btnHeight = 48;
+        const maxX = Math.max(20, areaRect.width - btnWidth - 20);
+        const maxY = Math.max(88, areaRect.height - btnHeight - 30);
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        yesBtn.style.left = `${randomX}px`;
+        yesBtn.style.top = `${randomY}px`;
+      });
+
+      yesBtn.addEventListener('click', () => {
+        gameMessage.innerHTML = '<strong>Love wins :</strong> money can’t compete with this energy.';
+        yesBtn.textContent = 'Yes, obviously 💘';
+        yesBtn.style.left = '50%';
+        yesBtn.style.top = '66%';
+        noBtn.textContent = 'No, but I’m still choosing you 😌';
+        noBtn.classList.add('static');
+        noBtn.style.left = '50%';
+        noBtn.style.top = '76%';
+      });
+
+      noBtn.addEventListener('mouseenter', () => {
+        noBtn.classList.add('static');
+      });
+
+      noBtn.addEventListener('click', () => {
+        gameMessage.innerHTML = '<strong>Exactly :</strong> money can offer a lot, but not this kind of love 😌💖';
+        noBtn.textContent = 'No, because you’re the one 🌷';
+        noBtn.classList.add('static');
+        noBtn.style.left = '58%';
+        noBtn.style.top = '66%';
+      });
+    </script>
+  </body>
+</html>
